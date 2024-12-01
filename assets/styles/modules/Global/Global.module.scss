@@ -1,0 +1,284 @@
+// Imports
+@import "../../tools/mixins/mixins.scss";
+@import "../../tools/themes/themes.scss";
+@import "../../tools/variables/variable.scss";
+
+// Desktop
+.loading_screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  @include displayElement(flex, center, center);
+  z-index: 999;
+  background-color: white;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  //   transition: opacity 0.5s ease, visibility 0.5s ease;
+  //   outline: 2px solid red;
+
+  .loading_screen_inner {
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    img {
+      display: block;
+      max-width: 700px;
+      @include quickCenter("relative");
+    }
+
+    .loading_dots {
+      @include displayElement(flex, space-evenly, center);
+      @include quickCenter("relative");
+      max-width: 200px;
+      margin-top: 80px;
+      //   animation: blink 1.5s infinite;
+
+      span {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        display: block;
+        background-color: $MediumCarmine;
+        animation: fade 1.5s infinite;
+        // opacity: 0.8;
+
+        &:nth-child(1) {
+          animation-delay: 0s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0.3s;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.6s;
+        }
+      }
+
+      @keyframes fade {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: translateY(0);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(-10px);
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media all and (max-width: 1995px) {
+}
+
+@media all and (max-width: 991px) {
+  .loading_screen {
+    .loading_screen_inner {
+      img {
+        max-width: 560px;
+      }
+
+      .loading_dots {
+        margin-top: 45px;
+        max-width: 150px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+// Desktop Window (Smallest)
+@media all and (max-width: 768px) {
+  .loading_screen {
+    .loading_screen_inner {
+      img {
+        max-width: 320px;
+      }
+
+      .loading_dots {
+        margin-top: 35px;
+        max-width: 120px;
+
+        span {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+}
+
+// Smaller Devices (Phones)
+@media all and (max-width: 419px) {
+  .loading_screen {
+    .loading_screen_inner {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      img {
+        max-width: 80%;
+      }
+
+      .loading_dots {
+        margin-top: 35px;
+        max-width: 120px;
+
+        span {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+}
+
+// Pixel 2 XL
+@media only screen and (min-device-width: 411px) and (max-device-width: 823px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .loading_screen {
+    .loading_screen_inner {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      img {
+        max-width: 300px;
+      }
+
+      .loading_dots {
+        margin-top: 45px;
+        max-width: 120px;
+
+        span {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+}
+
+// Ipad
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .loading_screen {
+    .loading_screen_inner {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      img {
+        max-width: 450px;
+      }
+
+      .loading_dots {
+        margin-top: 55px;
+        max-width: 120px;
+
+        span {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .loading_screen {
+    .loading_screen_inner {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      img {
+        max-width: 450px;
+      }
+
+      .loading_dots {
+        margin-top: 55px;
+        max-width: 120px;
+
+        span {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
+
+// iPad Pro
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .loading_screen {
+    .loading_screen_inner {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      img {
+        max-width: 750px;
+      }
+
+      .loading_dots {
+        margin-top: 75px;
+        max-width: 120px;
+
+        span {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .loading_screen {
+    .loading_screen_inner {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      img {
+        max-width: 550px;
+      }
+
+      .loading_dots {
+        margin-top: 55px;
+        max-width: 120px;
+
+        span {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
+
+// Laptops
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  .loading_screen {
+    .loading_screen_inner {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      img {
+        max-width: 750px;
+      }
+
+      .loading_dots {
+        margin-top: 75px;
+        max-width: 120px;
+
+        span {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
