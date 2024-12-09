@@ -5,14 +5,51 @@ import { useRouter } from "next/router";
 // Library Imports
 
 // Data/Functions/Images Imports
+import PageRouting from "../../assets/functions/routing/PageRouting";
 
 // Component Imports
 
 // Style Imports
 import "../../assets/styles/modules/Store/Store.module.css";
 
-export default function Store() {
+export default function Store({ attemptRouteChange }) {
   const router = useRouter();
 
-  return "";
+  return (
+    <div className="page" id="PAGE">
+      <div className="page-inner" id="PAGE_INNER">
+        <span
+          onClick={() => {
+            PageRouting("/", { attemptRouteChange });
+          }}
+        >
+          Home
+        </span>
+        <br />
+        <span
+          onClick={() => {
+            PageRouting("/info", { attemptRouteChange });
+          }}
+        >
+          Info
+        </span>
+        <br />
+        <span
+          onClick={() => {
+            PageRouting("/contact", { attemptRouteChange });
+          }}
+        >
+          Contact
+        </span>
+        <br />
+        <span
+          onClick={() => {
+            PageRouting("/store", { attemptRouteChange });
+          }}
+        >
+          Store
+        </span>
+      </div>
+    </div>
+  );
 }
